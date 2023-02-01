@@ -1,0 +1,22 @@
+{
+  "name": "user_join",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/www.js",
+  "bin": {
+    "user_join": "www.js"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
