@@ -1,5 +1,48 @@
 "use strict"
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
+const notifications = document.querySelector(".notifications");
+
+const toastDetails = {
+    timer: 5000,
+    // success: {
+    //     icon: 'fa-circle-check',
+    // },
+    error: {
+        icon: 'fa-circle-xmark',
+    },
+    warning: {
+        icon: 'fa-triangle-exclamation',
+    },
+    info: {
+        icon: 'fa-circle-info',
+    }
+}
+
+const removeToast = (toast) => {
+    toast.classList.add("hide");
+    if(toast.timeoutId) clearTimeout(toast.timeoutId); 
+    setTimeout(() => toast.remove(), 500);
+}
+
+const createToast = (id, text) => {
+    const { icon } = toastDetails[id];
+    const toast = document.createElement("li"); 
+    toast.className = `toast ${id}`; 
+    toast.innerHTML = `
+    <div class="column">
+        <i class="fa-solid ${icon}"></i>
+        <span>${text}</span>
+    </div>
+    <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>
+    `;
+    notifications.appendChild(toast);
+    toast.timeoutId = setTimeout(() => removeToast(toast), toastDetails.timer);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
 const id = document.querySelector("#id"),
     password = document.querySelector("#pswd"),
     loginBtn = document.querySelector("#btn");
@@ -20,13 +63,13 @@ function login() {
     })
         .then((res) => res.json())
         .then((res) => {
-            if(res.success) {
+            if(res.chk === 'success') {
                 location.href = "/";
             } else {
-                alert(res.message);
+                createToast(res.chk, res.text);
             }
         }) 
             .catch((err) => {
-                console.error("로그인 에러");
+                createToast('errer', '로그인 에러');
             });
 }
