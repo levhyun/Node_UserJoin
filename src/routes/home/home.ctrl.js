@@ -30,9 +30,10 @@ const process = {
     },
 
     // 회원가입 처리
-    signup : (req,res) => {
+    signup : async (req,res) => {
         const user = new User(req.body);
-        const response = user.signup();
+        const response = await user.signup();
+        console.log(response);
         return res.json(response);
     }
 };

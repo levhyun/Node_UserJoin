@@ -24,9 +24,9 @@ class User {
     }
 
     // 회원가입 로직 메서드
-    signup() {
+    async signup() {
         const user = this.body;
-        const response = UserStorage.addUser(user);
+        const response = await UserStorage.addUser(user);
         return response;
     }
 }

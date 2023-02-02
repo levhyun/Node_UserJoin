@@ -72,10 +72,10 @@ function signup() {
     })
         .then((res) => res.json())
         .then((res) => {
-            if(res.success) {
+            if(res.chk === 'success') {
                 location.href = "/login";
             } else {
-                alert(res.message);
+                createToast(res.chk, res.text);
             }
         }) 
             .catch(() => {
