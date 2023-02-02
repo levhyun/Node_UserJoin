@@ -23,9 +23,9 @@ const rendering = {
 // post 제어 객체
 const process = {
     // 로그인 처리
-    login : (req,res) => {
+    login : async (req,res) => {
         const user = new User(req.body);
-        const response = user.login();
+        const response = await user.login();
         return res.json(response);
     },
 

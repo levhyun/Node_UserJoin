@@ -8,12 +8,12 @@ class User {
     }
 
     // 로그인 로직 메서드
-    login() {
+    async login() {
         const user = this.body;
         if(user.id === "" && user.pswd === "") {
             return { chk : 'info' , text : 'The login input box is empty.' };
         }
-        const { id, pswd } = UserStorage.getUserInfo(user.id);
+        const { id, pswd } = await UserStorage.getUserInfo(user.id);
         if(id) {
             if( id === user.id && pswd === user.pswd) {
                 return { chk : 'success'}; 
@@ -26,7 +26,8 @@ class User {
     // 회원가입 로직 메서드
     signup() {
         const user = this.body;
-        UserStorage.addUser(user);
+        const response = UserStorage.addUser(user);
+        return response;
     }
 }
 
