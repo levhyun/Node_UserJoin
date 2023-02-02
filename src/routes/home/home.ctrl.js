@@ -22,9 +22,17 @@ const rendering = {
 
 // post 제어 객체
 const process = {
+    // 로그인 처리
     login : (req,res) => {
         const user = new User(req.body);
         const response = user.login();
+        return res.json(response);
+    },
+
+    // 회원가입 처리
+    signup : (req,res) => {
+        const user = new User(req.body);
+        const response = user.signup();
         return res.json(response);
     }
 };

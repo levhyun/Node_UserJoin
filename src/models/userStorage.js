@@ -6,17 +6,7 @@ class UserStorage {
         pswd : ["1", "2", "3"]
     };
 
-    static getUsers(...fileds) {
-        const users = this.#users;
-        const result = fileds.reduce((result, key) => {
-            if(users.hasOwnProperty(key)) {
-                result[key] = users[key];
-            }
-            return result;
-        }, {});
-        return result;
-    }
-
+    // 해당하는 id를 가진 유저 정보 반환
     static getUserInfo(id) {
         const users = this.#users;
         const index  = users.id.indexOf(id);
@@ -26,6 +16,11 @@ class UserStorage {
             return result;
         }, {});
         return userInfo;
+    }
+
+    // 유저 추가
+    static addUser(userInfo) {
+
     }
 }
 
