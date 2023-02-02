@@ -4,11 +4,6 @@ const User = require("../../models/user");
 
 // 랜더링 객체
 const rendering = {
-    // home 컨트롤러
-    home : (req,res) => {
-        res.render("home/index");
-    },
-
     // login 컨트롤러
     login : (req,res) => {
         res.render("home/login");
@@ -17,6 +12,16 @@ const rendering = {
     // Sign up 컨트롤러
     signup : (req,res) => {
         res.render("home/signup");
+    },
+
+    // main 페이지 컨트롤러
+    main : (req,res) => {
+        res.render("home/mainPage");
+    },
+
+    // 404 페이지 컨트롤러
+    notFoundPage : (req,res) => {
+        res.render("error/404");
     }
 };
 

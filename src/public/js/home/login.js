@@ -61,7 +61,7 @@ function login() {
         .then((res) => res.json())
         .then((res) => {
             if(res.chk === 'success') {
-                location.href = "/";
+                location.href = "/main";
             } else {
                 createToast(res.chk, res.text);
             }
