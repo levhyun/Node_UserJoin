@@ -1,10 +1,6 @@
 "use strict"
 
 class UserStorage {
-    static #users = {
-        id : ["a", "b", "c"],
-        pswd : ["1", "2", "3"]
-    };
 
     // 해당하는 id를 가진 유저 정보 반환
     static getUserInfo(id) {
