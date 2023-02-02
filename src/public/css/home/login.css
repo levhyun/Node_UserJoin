@@ -16,7 +16,7 @@ html {
 body {
   margin:0;
   padding:0;
-  font-family: sans-serif;
+  font-family: Poppins;
   background: url('../../img/blueWater.jpg') no-repeat center / cover;
 }
 
@@ -349,10 +349,6 @@ body {
   }
 }
 
-/* .toast.success::before {
-  background: var(--success);
-} */
-
 .toast.error::before {
   background: var(--error);
 }
@@ -368,10 +364,6 @@ body {
 .toast .column i {
   font-size: 1.75rem;
 }
-
-/* .toast.success .column i {
-  color: var(--success);
-} */
 
 .toast.error .column i {
   color: var(--error);

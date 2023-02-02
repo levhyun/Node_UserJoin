@@ -10,16 +10,16 @@ class User {
     login() {
         const body = this.body;
         if(body.id === "" && body.pswd === "") {
-            return { chk : 'info' , text : '공백 입력' };
+            return { chk : 'info' , text : 'The login text box is empty.' };
         }
         const { id, pswd } = UserStorage.getUserInfo(body.id);
         if(id) {
             if( id === body.id && pswd === body.pswd) {
-                return { chk : 'success' , text : '로그인 성공' }; 
+                return { chk : 'success'}; 
             }
-            return { chk : 'warning' , text : '패스워드 불일치' };
+            return { chk : 'warning' , text : 'Password mismatch' };
         }
-        return { chk : 'warning' , text : '존재하지 않는 아이디' }; 
+        return { chk : 'warning' , text : 'This Id does not exist.' }; 
     }
 }
 

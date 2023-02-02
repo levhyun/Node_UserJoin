@@ -6,9 +6,6 @@ const notifications = document.querySelector(".notifications");
 
 const toastDetails = {
     timer: 5000,
-    // success: {
-    //     icon: 'fa-circle-check',
-    // },
     error: {
         icon: 'fa-circle-xmark',
     },
@@ -70,6 +67,6 @@ function login() {
             }
         }) 
             .catch((err) => {
-                createToast('errer', '로그인 에러');
+                createToast('errer', 'Error occurred during login');
             });
 }

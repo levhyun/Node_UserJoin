@@ -14,7 +14,7 @@ const createToast = () => {
     toast.innerHTML = `
     <div class="column">
         <i class="fa-solid fa-circle-check"></i>
-        <span>로그인 성공</span>
+        <span>Login succeeded</span>
     </div>
     <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>
     `;
